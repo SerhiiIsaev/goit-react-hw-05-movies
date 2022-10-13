@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { SharedLayout } from "components/SharedLayout/SharedLayout";
-import { Home } from "components/Home/Home";
+import { Header } from "components/Header/Header";
+import { Home } from "Pages/Home/Home";
+import { Movies } from "Pages/Movies/Movies";
 // import { lazy, Suspense } from 'react';
 // import Loader from './components/Loader'
 // import Header from './components/Header'
@@ -27,14 +28,16 @@ import { Home } from "components/Home/Home";
 const App = () => {
   return (
     <>
+        <Header/>
         <Routes>
-          <Route path="/" element={<SharedLayout/>}>
-            <Route index path="/home" element={<Home />}/>
+          
+            <Route index path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies />}/>
 
         
 
             <Route path="*" element={<Home />}/>
-          </Route>
+          
         </Routes>
         <ToastContainer autoClose={2000} />
       

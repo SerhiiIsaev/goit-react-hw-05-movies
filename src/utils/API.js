@@ -16,7 +16,7 @@ export const searchMovies = async (stringToSearch) => {
     return movie;
   };
   
-  export const fetchTrendingMovies = async () => {
+  export const getTrendingMovies = async () => {
     const query = `trending/movie/day?api_key=${API_KEY}`;
     const { data: movies } = await axios.get(query);
     return movies;
