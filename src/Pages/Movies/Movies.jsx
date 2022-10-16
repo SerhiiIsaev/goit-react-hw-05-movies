@@ -10,6 +10,7 @@ const Movies = () => {
 
   const location = useLocation();
   const history = useNavigate();
+  console.log(location)
 
   useEffect(() => {
     const searchString = new URLSearchParams(location.search).get('query');

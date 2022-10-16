@@ -2,43 +2,56 @@ import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "components/Header/Header";
+import { lazy, Suspense } from 'react';
+import { Loader } from "components/Loader/Loader";
 import { Home } from "Pages/Home/Home";
 import { Movies } from "Pages/Movies/Movies";
-// import { lazy, Suspense } from 'react';
-// import Loader from './components/Loader'
-// import Header from './components/Header'
-// import MovieCast from "pages/MovieCast";
-// import MovieReview from "pages/MovieReview";
+import {MovieCast} from "Pages/MovieCast/MovieCast";
+import { MovieReview } from "Pages/MovieReview/MovieReview";
+import { MovieDetails } from "Pages/MovieDetails/MovieDetails";
 
 // const Home = lazy(() =>
-//   import('./pages/Home' )
+//   import('Pages/Home/Home' )
 // );
 // const Movies = lazy(() =>
-//   import('./pages/Movies')
+//   import('Pages/Movies/Movies')
 // );
 // const MovieDetails = lazy(() =>
 //   import(
-//     './pages/MovieDetails' 
+//     'Pages/MovieDetails/MovieDetails' 
 //   )
 // );
-// const NotFound = lazy(() =>
-//   import('./pages/NotFound')
-// );
+// const MovieReview = lazy(() =>
+//   import(
+//     'Pages/MovieReview/MovieReview'
+//   )
+// )
+// const MovieCast = lazy(() =>
+//   import(
+//     'Pages/MovieCast/MovieCast'
+//   )
+// )
+
 
 const App = () => {
   return (
     <>
-        <Header/>
+      <Header />
+     
         <Routes>
+          <Route index element={<Home />}/>
           
-            <Route index path="/" element={<Home />} />
-            <Route path="/movies" element={<Movies />}/>
-
+          <Route path="/movies" element={<Movies />} />
         
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<MovieCast />}></Route>
+            <Route path="reviews" element={<MovieReview />}></Route>
+          </Route>
 
-            <Route path="*" element={<Home />}/>
+          <Route path="*" element={<Home />}/>
           
         </Routes>
+      
         <ToastContainer autoClose={2000} />
       
     </>
@@ -47,19 +60,3 @@ const App = () => {
 
 export default App;
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
