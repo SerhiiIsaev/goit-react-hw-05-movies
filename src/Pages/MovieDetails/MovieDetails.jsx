@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import styles from './MovieDetails.module.css'
 import {useParams, useNavigate, useMatch, NavLink, useLocation, Outlet} from 'react-router-dom';
 import { getMovieDetails, IMAGE_URL } from '../../utils/API';
