@@ -39,7 +39,7 @@ const App = () => {
       <Header />
         <Suspense fallback={<Loader />}>
         <Routes>
-          <Route index path="/" element={<Home />}/>
+          <Route index element={<Home />}/>
           <Route path="/movies" element={<Movies />} />
         
           <Route path="/movies/:movieId" element={<MovieDetails />}>
