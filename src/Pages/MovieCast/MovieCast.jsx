@@ -17,7 +17,7 @@ const MovieCast =()=> {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={styles.list}>
       {cast && cast.map(({ id, profile_path, name, character }) => (
           <li key={id}>
             <img src={

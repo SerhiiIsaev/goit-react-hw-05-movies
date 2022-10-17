@@ -1,3 +1,7 @@
-ul, li{
+.cast {
+    font-size: 16px;
+}
+
+ul,li{
     list-style: none;
 }
