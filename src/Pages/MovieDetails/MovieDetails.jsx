@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './MovieDetails.module.css'
 import {useParams, useNavigate, useMatch, NavLink, useLocation, Outlet} from 'react-router-dom';
 import { getMovieDetails, IMAGE_URL } from '../../utils/API';
@@ -10,7 +10,7 @@ const MovieDetails =()=> {
   const history = useNavigate();
   const location = useLocation();
   const { pathname } = useMatch("/movies/:movieId/*");
-  var url = pathname.match(/^(\/movies\/\d+)/)[1];
+  const url = pathname.match(/^(\/movies\/\d+)/)[1];
   
   useEffect(() => {
     const getMovie = async () => {
@@ -27,11 +27,11 @@ const MovieDetails =()=> {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       {!movie ? (
         <div className={styles.notFound}>Movie is not found</div>
       ) : (
-        <>
+        <div>
           <button type="button" onClick={historyBack} className={styles.button}>Go back</button>
           <div className={styles.movieContainer}>
             <div className={styles.movieImg}>
@@ -56,7 +56,7 @@ const MovieDetails =()=> {
               <p>{`${movie.genres.map(genre => genre.name).join(' / ')}`}</p>
             </div>
           </div>
-        </>
+        </div>
       )}
       <hr />
       <p>Additional information</p>
@@ -75,14 +75,10 @@ const MovieDetails =()=> {
         >
           Reviews
         </NavLink>
-        </nav>
-        <Suspense>
-            <Outlet />
-        </Suspense>
-       
-      
-    </>
+      </nav>
+      <Outlet />  
+    </div>
   );
 }
 
-export { MovieDetails };
+export default MovieDetails ;

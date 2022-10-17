@@ -52,4 +52,4 @@ const location = useLocation();
   
 }
 
-export {Home}
+export default Home

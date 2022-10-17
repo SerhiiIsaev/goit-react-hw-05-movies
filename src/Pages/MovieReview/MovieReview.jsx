@@ -5,7 +5,6 @@ import { getReviews } from '../../utils/API';
 const MovieReview =()=> {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
-  // const movieId = 723419;
 
   useEffect(() => {
     const getCast = async () => {
@@ -35,4 +34,4 @@ const MovieReview =()=> {
   );
 }
 
-export {MovieReview}
+export default MovieReview

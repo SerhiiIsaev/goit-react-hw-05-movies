@@ -1,9 +1,12 @@
+
+
 .movieContainer {
     display: flex;
     justify-content: center;
 }
 
 .movieImg {
+    margin-left: 30px;
     margin-right: 30px;
 }
 

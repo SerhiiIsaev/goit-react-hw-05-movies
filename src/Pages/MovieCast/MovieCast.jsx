@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import { getMovieCast, IMAGE_URL } from '../../utils/API';
+import styles from './MovieCast.module.css'
 
 const MovieCast =()=> {
   const [cast, setCast] = useState(null);
@@ -36,4 +37,4 @@ const MovieCast =()=> {
   );
 }
 
-export {MovieCast};
+export default MovieCast;
